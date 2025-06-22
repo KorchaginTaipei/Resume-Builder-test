@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Quick Resume Builder</h1>
+    <div class="builder">
+      <form id="resumeForm">
+        <input type="text" placeholder="Full Name" id="name" />
+        <input type="text" placeholder="Job Title" id="title" />
+        <textarea placeholder="Summary" id="summary"></textarea>
+        <textarea placeholder="Experience" id="experience"></textarea>
+        <textarea placeholder="Education" id="education"></textarea>
+        <textarea placeholder="Skills (comma-separated)" id="skills"></textarea>
+        <button type="button" onclick="generateResume()">Preview Resume</button>
+      </form>
+
+      <div id="resumePreview" class="preview">
+        <h2 id="previewName"></h2>
+        <h4 id="previewTitle"></h4>
+        <p id="previewSummary"></p>
+        <h3>Experience</h3><p id="previewExperience"></p>
+        <h3>Education</h3><p id="previewEducation"></p>
+        <h3>Skills</h3><ul id="previewSkills"></ul>
+        <button onclick="downloadPDF()">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
