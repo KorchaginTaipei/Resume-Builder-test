@@ -1,57 +1,63 @@
 body {
-  font-family: sans-serif;
-  background: #f7f9fc;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: #f4f4f4;
 }
-
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 20px auto;
+  background: #fff;
   padding: 20px;
+  border-radius: 10px;
 }
-
 h1 {
   text-align: center;
   color: #333;
 }
-
-.builder {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.section {
+  margin-bottom: 20px;
 }
-
-form {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input, textarea {
-  padding: 10px;
-  font-size: 1rem;
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
+textarea {
+  resize: vertical;
+  height: 100px;
+}
 button {
-  padding: 10px;
-  font-size: 1rem;
   background: #007BFF;
   color: white;
+  padding: 10px 15px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
+}
+button:hover {
+  background: #0056b3;
+}
+.preview {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin-top: 20px;
+}
+.hidden {
+  display: none;
+}
+.classic-resume {
+  font-family: Georgia, serif;
+  color: #333;
+}
+.modern-resume {
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
+  border-left: 5px solid #007BFF;
+  padding-left: 20px;
 }
 
-.preview {
-  flex: 1;
-  min-width: 300px;
-  background: white;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
