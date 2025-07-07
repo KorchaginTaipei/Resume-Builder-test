@@ -12,25 +12,13 @@ function addExperience() {
 
 async function improveText(id) {
   const text = document.getElementById(id).value;
-  const res = await fetch("http://localhost:5000/rewrite", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ section: "summary", content: text })
-  });
-  const data = await res.json();
-  document.getElementById(id).value = data.rewritten;
+  alert("Pretend ChatGPT rewrote: " + text);
 }
 
 async function improveExperience(btn) {
   const textarea = btn.previousElementSibling;
   const text = textarea.value;
-  const res = await fetch("http://localhost:5000/rewrite", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ section: "experience", content: text })
-  });
-  const data = await res.json();
-  textarea.value = data.rewritten;
+  alert("Pretend ChatGPT rewrote: " + text);
 }
 
 function generateResume() {
@@ -67,7 +55,25 @@ function generateResume() {
 
 function downloadPDF() {
   const element = document.getElementById("resumePreview");
-  html2pdf().from(element).save("resume.pdf");
+  if (!element || element.innerHTML.trim() === "") {
+    alert("Please fill in your resume and click 'Preview Resume' before downloading.");
+    return;
+  }
+
+  const clone = element.cloneNode(true);
+  clone.style.display = "block";
+  clone.style.position = "static";
+  clone.style.width = "100%";
+
+  const opt = {
+    margin:       0.5,
+    filename:     'resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().from(clone).set(opt).save();
 }
 
 window.onload = () => {
